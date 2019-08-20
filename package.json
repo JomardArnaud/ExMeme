@@ -1,21 +1,31 @@
 {
-  "name": "myfirstreact",
-  "version": "0.1.0",
-  "private": true,
+  "name": "exmeme",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
   "dependencies": {
+    "@material-ui/core": "^4.3.2",
+    "@material-ui/icons": "^4.2.1",
+    "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.0"
+    "react-scripts": "^3.1.0"
   },
+  "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JomardArnaud/ExMeme.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JomardArnaud/ExMeme/issues"
+  },
+  "homepage": "https://github.com/JomardArnaud/ExMeme#readme",
   "browserslist": {
     "production": [
       ">0.2%",
