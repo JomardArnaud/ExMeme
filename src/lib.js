@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { Icon, ChevronLeftIcon, ChevronRightIcon, InboxIcon, MailIcon } from '@material-ui/icons';
-import { Modal, GridList, Drawer, makeStyles, useTheme, CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Icon, Modal, GridList, Drawer, makeStyles, useTheme, CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 const drawerWidth = 240;
 
 const useStylesDrawer = makeStyles(theme => ({
@@ -60,7 +59,7 @@ const useStylesDrawer = makeStyles(theme => ({
   },
 }));
 
-export function PersistentDrawerLeft() {
+function PersistentDrawerLeft(props) {
   const classes = useStylesDrawer();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -93,7 +92,7 @@ export function PersistentDrawerLeft() {
             <Icon>menu</Icon>
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            Cat's viewer
           </Typography>
         </Toolbar>
       </AppBar>
@@ -108,23 +107,23 @@ export function PersistentDrawerLeft() {
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? <Icon>NavigateBefore</Icon> : <Icon>NavigateNext</Icon>}
           </IconButton>
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['User', 'Favorite', 'Archived'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{<Icon>inboxicon</Icon>}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Fields'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{<Icon>inboxicon</Icon>}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -136,29 +135,7 @@ export function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        {props.mainElement}
       </main>
     </div>
   );
@@ -175,7 +152,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-  export default function SimpleModal(props) {
+function SimpleModal(props) {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
@@ -202,4 +179,9 @@ const useStyles = makeStyles(theme => ({
         </Modal>
       </div>
     );
+  }
+
+  export {
+    PersistentDrawerLeft,
+    SimpleModal,
   }
